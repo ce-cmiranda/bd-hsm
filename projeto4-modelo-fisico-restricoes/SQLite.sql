@@ -1,0 +1,32 @@
+CREATE TABLE IF NOT EXISTS mae (
+	mae_id INTEGER PRIMARY KEY,
+	nome TEXT NOT NULL,
+	telefone TEXT NOT NULL,
+	endereco TEXT NOT NULL,
+	data_nascimento DATE NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS medico (
+	medico_id INTEGER PRIMARY KEY,
+	nome TEXT NOT NULL,
+	crm TEXT NOT NULL,
+	telefone TEXT NOT NULL,
+	especialidade TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS bebe (
+	bebe_id INTEGER PRIMARY KEY,
+	nome TEXT NOT NULL,
+	peso DECIMAL NOT NULL,
+	data_nascimento DATE NOT NULL,
+	altura DECIMAL NOT NULL,
+  	mae_id INTEGER NOT NULL,
+    medico_id INTEGER NOT NULL,
+  	FOREIGN KEY(mae_id) REFERENCES mae(mae_id)
+  		ON DELETE SET NULL
+  		ON UPDATE NO ACTION,
+  	FOREIGN KEY(medico_id) REFERENCES medico(medico_id)
+    	ON DELETE SET NULL
+  		ON UPDATE NO ACTION
+  
+);
