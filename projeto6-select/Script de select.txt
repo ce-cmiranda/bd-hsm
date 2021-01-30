@@ -1,0 +1,21 @@
+a) os nomes e as datas de nascimento de todos os bebês que tiveram a dra. Angélica Knutz como médica;
+
+select bebe.nome, bebe.data_nascimento from bebe
+LEFT JOIN medico on bebe.medico_id = medico.medico_id
+WHERE
+medico.nome = "Angélica Knutz"
+
+
+b) o nome, endereço e a data de nascimento da mãe, assim como o peso de todos os bebês que pesaram menos que 3,55 kg no nascimento;
+
+SELECT mae.nome, mae.endereco, mae.data_nascimento, bebe.peso FROM mae
+LEFT JOIN bebe on mae.mae_id = bebe.mae_id
+WHERE
+bebe.peso >= "3,55"
+
+c) o CRM, nome e a especialização do médico que fez o parto de todos os bebês que tiveram peso abaixo de 3,55 kg.
+
+SELECT medico.nome, medico.crm, medico.especialidade FROM medico
+LEFT JOIN bebe on medico.medico_id = bebe.medico_id
+WHERE
+bebe.peso < "3,55"
