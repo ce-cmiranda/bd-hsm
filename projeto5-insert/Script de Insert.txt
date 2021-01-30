@@ -1,0 +1,4 @@
+insert into medico(nome, crm, telefone, especialidade)
+VALUES
+("Túlio Ramos","182544 SP","(11) 99886-6522", "Obstetrícia"),
+("Angélica Knutz","149434 SP","(11) 99665-5223", "Obstetrícia e Ginecologia");
